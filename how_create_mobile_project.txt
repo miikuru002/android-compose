@@ -1,0 +1,92 @@
+Pasos para proyecto mobile - Android Studio
+--------------------------------------------
+
+Primero en el main se pega la funcion que se mostrara primero
+
+
+
+
+
+Para agregar la nevegacion entre pantallas de la 
+apliacion, se desrga el siguiente modulo:
+la version que no dice alpha
+->  navigation-compose
+val nav_version = "2.7.7"
+implementation("androidx.navigation:navigation-compose:$nav_version")
+
+
+se pega en gradle scripts, en el module app
+, se pega si se agrega manualemtne, si no solo se descarga y ya
+
+
+luego, en el home, para la naegacion se poner cierto codigo,
+ mira el mark01
+
+
+
+
+/////////////////////////////////
+Para permitir el acceso a internet, debes colocar el permiso en el
+manifest:
+->    <uses-permission android:name="android.permission.INTERNET" />
+
+/////////////////////////////////////////////////////
+Para el proyecto del jocker, metimos una dependecnia 
+llamdada: com.squareup.retrofit2.  OJO que tiene que ser del artefacto retrofit
+
+Otra dependencia para para parceajn objetos json son
+->converter-gson
+tiene que ser del mismo grupo de retrofit2 squareup.
+
+tambien apuntamos la refrencia de la version a retrofit, ya que es la misma verison,
+elimine la version de gson, y abajo, su refrencia
+de version, lo apunte al de retrofit
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+Para mostrar imagenes, se agrega esta dependencia:/
+->landscapist-glide
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////
+PARA LA BASE DE DATOS LOCAL, se agrega en dependencia:
+-> room-runtime
+-> room-compiler
+ambos version 2.6.1
+luego en el libs, se elimina una refrecnia a la version
+y se pone una en comun para ambos.
+luego en build.gradle, en las dependeicas, cambiarlo
+el compiler a annotationProcessor, porque esta como implementation y no ps 
+
+
+
+luego em build.gradle.kts, en plugins, agregamos-> id("kotlin-kapt")
+
+y en las dependencias ->     kapt(libs.androidx.room.compiler)
+ambos en el build.gradle.kts(Module:app)
+
+
+
+ahora si, en model creamos el package : local
+ahi creamos el entity y Dao
+luego el packge persistence, y ahi el AppDatabse,
+luego en factories, creamos HeroDaoFactory
+
+
+cuando creemos el application a nivel de la app, debemos
+ponerlo tmb en el manifest, en la parte de applicaiton
+->android:name=".MyApplication"
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
